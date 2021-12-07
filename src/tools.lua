@@ -23,3 +23,7 @@ function drawspr(_spr, _x, _y, _c, _flip)
   spr(_spr, _x, _y,1,1,_flip)
   pal()
 end
+
+function rectfill2(_x,_y,_w,_h,_c)
+  rectfill(_x,_y,_x+_w-1,_y+_h-1,_c)
+ end

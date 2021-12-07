@@ -1,11 +1,17 @@
 function update_game()
-    cls(0)
-    map()
-
-    palt(0,false)
-    spr(240, p_x*8, p_y*8)
+  if btnp(0) then
+    p_x-=1
+  end
+  if btnp(1) then
+    p_x+=1
+  end
+  if btnp(2) then
+    p_y-=1
+  end
+  if btnp(3) then
+    p_y+=1
+  end
 end
   
 function update_gameover()
-  
 end

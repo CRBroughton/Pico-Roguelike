@@ -19,6 +19,7 @@ function moveplayer(dx,dy)
 			trig_bump(tle,destx,desty)
 		end
 	else
+		sfx(63)
 		p_x+=dx
 		p_y+=dy
 
@@ -33,12 +34,15 @@ end
 function trig_bump(tle,destx,desty)
 	if tle==7 or tle==8 then
 		-- vase
+		sfx(59)
 		mset(destx,desty,1)
 	elseif tle==10 or tle==12 then
 		-- chest
+		sfx(61)
 		mset(destx,desty,tle-1)
 	elseif tle==13 then
 		-- door
+		sfx(62)
 		mset(destx,desty,1)
 	end
 end

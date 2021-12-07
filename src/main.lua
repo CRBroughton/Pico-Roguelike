@@ -16,7 +16,8 @@ function _update60()
 end
 
 function _draw()
-_drw()
+  _drw()
+  drawind()
 end
 
 function startgame()
@@ -30,4 +31,7 @@ function startgame()
   p_flip=false
   p_mov=nil
   p_t=0
+
+  wind={}
+  addwind(32,64,64,24,{'test','this is line 2'})
 end

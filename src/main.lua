@@ -20,8 +20,8 @@ _drw()
 end
 
 function startgame()
-  p_x=3
-  p_y=5
+  p_x=1
+  p_y=1
   p_ox=0
   p_oy=0
   p_sox=0

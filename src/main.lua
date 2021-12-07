@@ -26,5 +26,7 @@ function startgame()
   p_oy=0
   p_sox=0
   p_soy=0
+  p_flip=false
+  p_mov=nil
   p_t=0
 end

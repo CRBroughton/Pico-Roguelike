@@ -1,13 +1,7 @@
 function update_game()
   for i=0,3 do
     if btnp(i) then
-      local dx,dy=dirx[i+1],diry[i+1]
-      p_x+=dx
-      p_y+=dy
-      p_sox,p_soy=-dx*8,-dy*8
-      p_ox,p_oy=p_sox,p_soy
-      p_t=0
-      _upd=update_pturn
+      moveplayer(dirx[i+1],diry[i+1])
       return
     end
   end
@@ -16,8 +10,7 @@ end
 function update_pturn()
   p_t=min(p_t+0.1,1)
 
-  p_ox=p_sox*(1-p_t)
-  p_oy=p_soy*(1-p_t)
+  p_mov()
 
   if p_t==1 then
     _upd=update_game
@@ -25,4 +18,18 @@ function update_pturn()
 end
   
 function update_gameover()
+end
+
+function mov_walk()
+  p_ox=p_sox*(1-p_t)
+  p_oy=p_soy*(1-p_t)
+end
+
+function mov_bump()
+  local tme=p_t
+  if p_t>0.5 then
+    tme=1-p_t
+  end
+    p_ox=p_sox*tme
+    p_oy=p_soy*tme
 end

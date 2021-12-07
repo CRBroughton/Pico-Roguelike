@@ -30,4 +30,6 @@ function startgame()
   p_flip=false
   p_mov=nil
   p_t=0
+  
+  wind={}
 end

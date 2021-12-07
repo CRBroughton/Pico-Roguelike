@@ -18,4 +18,6 @@ end
 function startgame()
   p_x=3
   p_y=5
+  p_ox=0
+  p_oy=0
 end

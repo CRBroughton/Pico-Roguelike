@@ -17,9 +17,9 @@ function getframe(ani)
   return ani[flr(t/16)%#ani+1]
 end
 
-function drawspr(_spr, _x, _y, _c)
+function drawspr(_spr, _x, _y, _c, _flip)
   palt(0,false)
   pal(6,_c)
-  spr(_spr, _x, _y)
+  spr(_spr, _x, _y,1,1,_flip)
   pal()
 end

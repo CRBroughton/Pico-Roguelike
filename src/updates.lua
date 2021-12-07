@@ -4,6 +4,13 @@ function update_game()
       local dx,dy=dirx[i+1],diry[i+1]
       p_x+=dx
       p_y+=dy
+
+      if dx<0 then
+        p_flip=true
+      elseif dx>0 then
+        p_flip=false
+      end
+      
       p_sox,p_soy=-dx*8,-dy*8
       p_ox,p_oy=p_sox,p_soy
       p_t=0

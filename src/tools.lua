@@ -1,7 +1,7 @@
 
   -- t continues to advance through the array, fast
   -- to limit the speed it advances through the frames
-  -- we divide t by a number, in this case 8 (this number
+  -- we divide t by a number, in this case 16 (this number
   -- can be used to control the animation speed)
 
   -- by using the flr(floor) command, we strip away
@@ -14,7 +14,7 @@
   -- finally we +1 to match lua arrays starting at 1
   
 function getframe(ani)
-  return ani[flr(t/8)%#ani+1]
+  return ani[flr(t/16)%#ani+1]
 end
 
 function drawspr(_spr, _x, _y, _c)

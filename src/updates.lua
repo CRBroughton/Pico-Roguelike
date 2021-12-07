@@ -1,13 +1,15 @@
 function update_game()
-  for i=0,3 do
-    if btnp(i) then
-      moveplayer(dirx[i+1],diry[i+1])
-      return
-    end
+  if buttbuff==-1 then
+    buttbuff=getbutt()
   end
+  dobutt(buttbuff)
+  buttbuff=-1
 end
 
 function update_pturn()
+  if buttbuff==-1 then
+    buttbuff=getbutt()
+  end
   p_t=min(p_t+0.1,1)
 
   p_mov()
@@ -32,4 +34,24 @@ function mov_bump()
   end
     p_ox=p_sox*tme
     p_oy=p_soy*tme
+end
+
+function getbutt()
+  for i=0,5 do
+    if btnp(i) then
+      return i
+    end
+  end
+  return -1
+end
+
+function dobutt(butt)
+  if butt<0 then 
+    return
+  end
+  if butt>=0 and butt<4 then
+    moveplayer(dirx[butt+1],diry[butt+1])
+    return
+  end
+    -- menu button
 end

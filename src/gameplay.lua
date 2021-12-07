@@ -15,6 +15,9 @@ function moveplayer(dx,dy)
 		p_t=0
 		_upd=update_pturn
 		p_mov=mov_bump
+		if fget(tle,1) then
+			trig_bump(tle,destx,desty)
+		end
 	else
 		p_x+=dx
 		p_y+=dy
@@ -24,5 +27,18 @@ function moveplayer(dx,dy)
 		p_t=0
 		_upd=update_pturn
 		p_mov=mov_walk
+	end
+end
+
+function trig_bump(tle,destx,desty)
+	if tle==7 or tle==8 then
+		-- vase
+		mset(destx,desty,1)
+	elseif tle==10 or tle==12 then
+		-- chest
+		mset(destx,desty,tle-1)
+	elseif tle==13 then
+		-- door
+		mset(destx,desty,1)
 	end
 end

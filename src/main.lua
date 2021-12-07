@@ -1,10 +1,13 @@
 function _init()
+  t=0
+  p_ani={240,241,242,243}
   _upd=update_game
   _drw=draw_game
   startgame()
 end
 
 function _update()
+  t+=1
   _upd()
 end
 

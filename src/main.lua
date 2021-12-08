@@ -33,5 +33,4 @@ function startgame()
   p_t=0
 
   wind={}
-  addwind(32,64,64,24,{'test','this is line 2'})
 end

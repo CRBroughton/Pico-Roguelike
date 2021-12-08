@@ -23,5 +23,22 @@ function drawind()
       print(txt,wx,wy,6)
       wy+=6
     end
+
+    if w.dur!=nil then
+      w.dur-=1
+      if w.dur<0 then
+        local dif=wh/4
+        w.h-=dif
+        if wh<1 then
+          del(wind,w)
+        end
+      end
+    end
   end
+end
+
+function showmsg(txt,dur)
+  local wid=#txt*4+7
+  local w=addwind(63-wid/2,50,wid,13,{txt})
+  w.dur=dur
 end

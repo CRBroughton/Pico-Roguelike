@@ -44,5 +44,9 @@ function trig_bump(tle,destx,desty)
 		-- door
 		sfx(62)
 		mset(destx,desty,1)
+	elseif tle==6 then
+		-- stone tablet
+		showmsg('hello world', 120)
+		-- addwind(32,64,64,24,{'welcome to the world','of porklike'})
 	end
 end

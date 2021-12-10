@@ -46,7 +46,8 @@ function trig_bump(tle,destx,desty)
 		mset(destx,desty,1)
 	elseif tle==6 then
 		-- stone tablet
-		showmsg('hello world', 120)
+		-- showmsg('hello world', 120)
+		showmsg({'welcome to porklike','','climb the tower','to obtain the','golden kielbasa'})
 		-- addwind(32,64,64,24,{'welcome to the world','of porklike'})
 	end
 end

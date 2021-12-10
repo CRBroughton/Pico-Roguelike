@@ -1,7 +1,14 @@
 function update_game()
-  dobuttbuff()
-  dobutt(buttbuff)
-  buttbuff=-1
+  if talkwind!=nil then
+    if getbutt()==5 then
+      talkwind.dur=0
+      talkwind=nil
+    end
+  else
+    dobuttbuff()
+    dobutt(buttbuff)
+    buttbuff=-1
+  end
 end
 
 function update_pturn()

@@ -28,6 +28,7 @@ function drawind()
       w.dur-=1
       if w.dur<3 then
         local dif=wh/4
+        w.y+=dif/2
         w.h-=dif
         if wh<1 then
           del(wind,w)

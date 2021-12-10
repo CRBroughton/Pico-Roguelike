@@ -39,7 +39,7 @@ function drawind()
 end
 
 function showmsg(txt,dur)
-  local wid=#txt*4+7
-  local w=addwind(63-wid/2,50,wid,13,{txt})
+  local wid=(#txt+2)*4+7
+  local w=addwind(63-wid/2,50,wid,13,{' '..txt})
   w.dur=dur
 end

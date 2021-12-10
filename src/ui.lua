@@ -43,3 +43,8 @@ function showmsg(txt,dur)
   local w=addwind(63-wid/2,50,wid,13,{' '..txt})
   w.dur=dur
 end
+
+function showmsg(txt)
+  talkwind=addwind(16,50,94,#txt*6+7,txt)
+  talkwind.butt=true
+end

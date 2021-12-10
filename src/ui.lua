@@ -26,7 +26,7 @@ function drawind()
 
     clip()
     if w.butt then
-      oprint8('❎',wx+ww-15,wy-1,6,0)
+      oprint8('❎',wx+ww-15,wy-1+sin(time()),6,0)
     end
 
     if w.dur!=nil then

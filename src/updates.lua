@@ -1,5 +1,5 @@
 function update_game()
-  if talkwind!=nil then
+  if talkwind then
     if getbutt()==5 then
       talkwind.dur=0
       talkwind=nil
@@ -60,7 +60,6 @@ function dobutt(butt)
   end
   if butt<4 then
     moveplayer(dirx[butt+1],diry[butt+1])
-    return
   end
     -- menu button
 end

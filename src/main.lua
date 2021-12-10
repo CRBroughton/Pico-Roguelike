@@ -2,8 +2,8 @@ function _init()
   t=0
   p_ani={240,241,242,243}
 
-  dirx={-1,1,0,0}
-  diry={0,0,-1,1}
+  dirx={-1,1,0,0,1,1,-1,-1}
+  diry={0,0,-1,1,-1,1,1,-1}
 
   _upd=update_game
   _drw=draw_game

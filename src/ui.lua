@@ -24,6 +24,11 @@ function drawind()
       wy+=6
     end
 
+    clip()
+    if w.butt then
+      oprint8('❎',wx+ww-15,wy-1,6,0)
+    end
+
     if w.dur!=nil then
       w.dur-=1
       if w.dur<3 then

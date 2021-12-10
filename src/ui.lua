@@ -23,5 +23,34 @@ function drawind()
       print(txt,wx,wy,6)
       wy+=6
     end
+
+    clip()
+
+    if w.dur!=nil then
+      w.dur-=1
+      if w.dur<3 then
+        local dif=wh/4
+        w.y+=dif/2
+        w.h-=dif
+        if wh<1 then
+          del(wind,w)
+        end
+      end
+    else
+      if w.butt then
+        oprint8('❎',wx+ww-15,wy-1+sin(time()),6,0)
+      end
+    end
   end
+end
+
+function showmsg(txt,dur)
+  local wid=(#txt+2)*4+7
+  local w=addwind(63-wid/2,50,wid,13,{' '..txt})
+  w.dur=dur
+end
+
+function showmsg(txt)
+  talkwind=addwind(16,50,94,#txt*6+7,txt)
+  talkwind.butt=true
 end

@@ -25,5 +25,12 @@ function drawspr(_spr, _x, _y, _c, _flip)
 end
 
 function rectfill2(_x,_y,_w,_h,_c)
-  rectfill(_x,_y,_x+_w-1,_y+_h-1,_c)
- end
+  rectfill(_x,_y,_x+max(_w-1,0),_y+max(_h-1,0),_c)
+end
+
+function oprint8(_t,_x,_y,_c,_c2)
+  for i=1,8 do
+   print(_t,_x+dirx[i],_y+diry[i],_c2)
+  end 
+  print(_t,_x,_y,_c)
+end

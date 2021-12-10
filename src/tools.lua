@@ -25,5 +25,5 @@ function drawspr(_spr, _x, _y, _c, _flip)
 end
 
 function rectfill2(_x,_y,_w,_h,_c)
-  rectfill(_x,_y,_x+_w-1,_y+_h-1,_c)
- end
+  rectfill(_x,_y,_x+max(_w-1,0),_y+max(_h-1,0),_c)
+end

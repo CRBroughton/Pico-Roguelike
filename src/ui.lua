@@ -32,7 +32,7 @@ function drawind()
         local dif=wh/4
         w.y+=dif/2
         w.h-=dif
-        if wh<1 then
+        if dif<1 then
           del(wind,w)
         end
       end

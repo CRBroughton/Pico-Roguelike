@@ -26,7 +26,7 @@ function drawind()
 
     if w.dur!=nil then
       w.dur-=1
-      if w.dur<0 then
+      if w.dur<3 then
         local dif=wh/4
         w.h-=dif
         if wh<1 then

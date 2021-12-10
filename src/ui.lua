@@ -25,9 +25,6 @@ function drawind()
     end
 
     clip()
-    if w.butt then
-      oprint8('❎',wx+ww-15,wy-1+sin(time()),6,0)
-    end
 
     if w.dur!=nil then
       w.dur-=1
@@ -38,6 +35,10 @@ function drawind()
         if wh<1 then
           del(wind,w)
         end
+      end
+    else
+      if w.butt then
+        oprint8('❎',wx+ww-15,wy-1+sin(time()),6,0)
       end
     end
   end

@@ -78,6 +78,10 @@ function inbounds(x,y)
   return not (x<0 or y<0 or x>15 or y>15)
 end
 
-function hitmob(atk,def)
-  
+function hitmob(atkm,defm)
+  defm.hp-=atkm.atk
+  if defm.hp<=0 then
+    -- hp is zero
+    del(mob,defm)
+  end
 end

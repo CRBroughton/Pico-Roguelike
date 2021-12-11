@@ -1,33 +1,33 @@
 function moveplayer(dx,dy)
-	local destx,desty=p_x+dx,p_y+dy
+	local destx,desty=p_mob.x+dx,p_mob.y+dy
 	local tle=mget(destx,desty)
 
 	if dx<0 then
-		p_flip=true
+		p_mob.flp=true
 	elseif dx>0 then
-		p_flip=false
+		p_mob.flp=false
 	end
 
 	if fget(tle,0) then
 		--a wall is here
-		p_sox,p_soy=dx*8,dy*8
-		p_ox,p_oy=0,0
+		p_mob.sox,p_mob.soy=dx*8,dy*8
+		p_mob.ox,p_mob.oy=0,0
 		p_t=0
 		_upd=update_pturn
-		p_mov=mov_bump
+		p_mob.mov=mov_bump
 		if fget(tle,1) then
 			trig_bump(tle,destx,desty)
 		end
 	else
 		sfx(63)
-		p_x+=dx
-		p_y+=dy
+		p_mob.x+=dx
+		p_mob.y+=dy
 
-		p_sox,p_soy=-dx*8,-dy*8
-		p_ox,p_oy=p_sox,p_soy
+		p_mob.sox,p_mob.soy=-dx*8,-dy*8
+		p_mob.ox,p_mob.oy=p_mob.sox,p_mob.soy
 		p_t=0
 		_upd=update_pturn
-		p_mov=mov_walk
+		p_mob.mov=mov_walk
 	end
 end
 

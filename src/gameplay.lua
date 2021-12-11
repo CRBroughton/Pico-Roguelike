@@ -8,17 +8,7 @@ function moveplayer(dx,dy)
 		p_mob.flp=false
 	end
 
-	if fget(tle,0) then
-		--a wall is here
-		p_mob.sox,p_mob.soy=dx*8,dy*8
-		p_mob.ox,p_mob.oy=0,0
-		p_t=0
-		_upd=update_pturn
-		p_mob.mov=mov_bump
-		if fget(tle,1) then
-			trig_bump(tle,destx,desty)
-		end
-	else
+	if iswalkable(destx,desty) then
 		sfx(63)
 		p_mob.x+=dx
 		p_mob.y+=dy
@@ -28,6 +18,16 @@ function moveplayer(dx,dy)
 		p_t=0
 		_upd=update_pturn
 		p_mob.mov=mov_walk
+	else
+		--a wall is here
+		p_mob.sox,p_mob.soy=dx*8,dy*8
+		p_mob.ox,p_mob.oy=0,0
+		p_t=0
+		_upd=update_pturn
+		p_mob.mov=mov_bump
+		if fget(tle,1) then
+			trig_bump(tle,destx,desty)
+		end
 	end
 end
 
@@ -56,4 +56,27 @@ function trig_bump(tle,destx,desty)
 		end
 		-- addwind(32,64,64,24,{'welcome to the world','of porklike'})
 	end
+end
+
+function getmob(x,y)
+  for m in all(mob) do
+    if m.x==x and m.y==y then
+      return m
+    end
+  end
+  return false
+end
+
+function iswalkable(x,y)
+	if inbounds(x,y) then
+	  local tle=mget(x,y)
+    if fget(tle,0)==false then
+      return true
+    end
+  end
+  return false
+end
+
+function inbounds(x,y)
+  return not (x<0 or y<0 or x>15 or y>15)
 end

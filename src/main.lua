@@ -6,6 +6,8 @@ function _init()
   diry={0,0,-1,1,-1,1,1,-1}
 
   mob_ani={240,192}
+  mob_atk={1,1}
+  mob_hp={5,1}
 
   _upd=update_game
   _drw=draw_game

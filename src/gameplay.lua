@@ -19,15 +19,21 @@ function moveplayer(dx,dy)
 		_upd=update_pturn
 		p_mob.mov=mov_walk
 	else
-		--a wall is here
+		--not walkable
 		p_mob.sox,p_mob.soy=dx*8,dy*8
 		p_mob.ox,p_mob.oy=0,0
 		p_t=0
 		_upd=update_pturn
 		p_mob.mov=mov_bump
-		if fget(tle,1) then
-			trig_bump(tle,destx,desty)
-		end
+
+    local mob=getmob(destx,desty)
+    if mob==false then
+      if fget(tle,1) then
+        trig_bump(tle,destx,desty)
+      end
+    else
+      hitmob(p_mob,mob)
+    end
 	end
 end
 
@@ -83,4 +89,8 @@ end
 
 function inbounds(x,y)
   return not (x<0 or y<0 or x>15 or y>15)
+end
+
+function hitmob(atk,def)
+  
 end

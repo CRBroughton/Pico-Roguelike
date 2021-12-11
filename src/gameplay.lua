@@ -80,6 +80,7 @@ end
 
 function hitmob(atkm,defm)
   defm.hp-=atkm.atk
+  defm.flash=10
   if defm.hp<=0 then
     -- hp is zero
     del(mob,defm)

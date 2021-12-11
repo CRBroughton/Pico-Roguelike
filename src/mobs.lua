@@ -9,6 +9,7 @@ function addmob(typ,mx,my)
     flp=false,
     mov=nil,
     ani={},
+    flash=0,
     hp=mob_hp[typ],
     hpmax=mob_hp[typ],
     atk=mob_atk[typ],

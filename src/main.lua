@@ -7,7 +7,7 @@ function _init()
 
   mob_ani={240,192}
   mob_atk={1,1}
-  mob_hp={5,1}
+  mob_hp={5,2}
 
   _upd=update_game
   _drw=draw_game

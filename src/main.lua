@@ -22,6 +22,9 @@ end
 
 function startgame()
   buttbuff=-1
+
+  mob={}
+  addmob(0,2,3)
   p_x=1
   p_y=1
   p_ox=0

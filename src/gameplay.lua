@@ -2,29 +2,16 @@ function moveplayer(dx,dy)
 	local destx,desty=p_mob.x+dx,p_mob.y+dy
 	local tle=mget(destx,desty)
 
-	if dx<0 then
-		p_mob.flp=true
-	elseif dx>0 then
-		p_mob.flp=false
-	end
-
 	if iswalkable(destx,desty,'checkmobs') then
 		sfx(63)
-		p_mob.x+=dx
-		p_mob.y+=dy
-
-		p_mob.sox,p_mob.soy=-dx*8,-dy*8
-		p_mob.ox,p_mob.oy=p_mob.sox,p_mob.soy
-		p_t=0
-		_upd=update_pturn
-		p_mob.mov=mov_walk
+    mobwalk(p_mob,dx,dy)
+    p_t=0
+   _upd=update_pturn
 	else
 		--not walkable
-		p_mob.sox,p_mob.soy=dx*8,dy*8
-		p_mob.ox,p_mob.oy=0,0
-		p_t=0
-		_upd=update_pturn
-		p_mob.mov=mov_bump
+    mobbump(p_mob,dx,dy)
+    p_t=0
+    _upd=update_pturn
 
     local mob=getmob(destx,desty)
     if mob==false then

@@ -19,6 +19,7 @@ function moveplayer(dx,dy)
         trig_bump(tle,destx,desty)
       end
     else
+      sfx(58)
       hitmob(p_mob,mob)
     end
 	end

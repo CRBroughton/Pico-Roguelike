@@ -30,9 +30,15 @@ function startgame()
 
   mob={}
   p_mob=addmob(1,1,1)
-  addmob(2,2,3)
-  addmob(2,2,11)
-  addmob(2,7,12)
+
+  for x=0,15 do
+    for y=0,15 do
+      if mget(x,y)==192 then
+        addmob(2,x,y)
+        mset(x,y,1)
+      end
+    end
+  end
 
 
   p_t=0

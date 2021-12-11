@@ -8,7 +8,10 @@ function addmob(typ,mx,my)
     soy=0,
     flp=false,
     mov=nil,
-    ani={}
+    ani={},
+    hp=mob_hp[typ],
+    hpmax=mob_hp[typ],
+    atk=mob_atk[typ],
   }
   for i=0,3 do
     add(m.ani,mob_ani[typ]+i)
@@ -17,42 +20,42 @@ function addmob(typ,mx,my)
   return m
 end
 
-function mobwalk(mob,dx,dy)
-  mob.x+=dx
-  mob.y+=dy
-  
-  mobflip(mob,dx)
-  mob.sox,mob.soy=-dx*8,-dy*8
-  mob.ox,mob.oy=mob.sox,mob.soy
+function mobwalk(mb,dx,dy)
+  mb.x+=dx
+  mb.y+=dy
 
-  mob.mov=mov_walk
+  mobflip(mb,dx)
+  mb.sox,mb.soy=-dx*8,-dy*8
+  mb.ox,mb.oy=mb.sox,mb.soy
+
+  mb.mov=mov_walk
 end
 
-function mobbump(mob,dx,dy)
-  mobflip(mob,dx)
-  mob.sox,mob.soy=dx*8,dy*8
-  mob.ox,mob.oy=0,0
-  mob.mov=mov_bump
+function mobbump(mb,dx,dy)
+  mobflip(mb,dx)
+  mb.sox,mb.soy=dx*8,dy*8
+  mb.ox,mb.oy=0,0
+  mb.mov=mov_bump
 end
 
-function mobflip(mob,dx)
+function mobflip(mb,dx)
   if dx<0 then
-		mob.flp=true
+		mb.flp=true
 	elseif dx>0 then
-		mob.flp=false
+		mb.flp=false
 	end
 end
 
-function mov_walk(mob,at)
-  mob.ox=mob.sox*(1-at)
-  mob.oy=mob.soy*(1-at)
+function mov_walk(mb,at)
+  mb.ox=mb.sox*(1-at)
+  mb.oy=mb.soy*(1-at)
 end
 
-function mov_bump(mob,at)
+function mov_bump(mb,at)
   local tme=at
   if at>0.5 then
     tme=1-at
   end
-    mob.ox=mob.sox*tme
-    mob.oy=mob.soy*tme
+    mb.ox=mb.sox*tme
+    mb.oy=mb.soy*tme
 end

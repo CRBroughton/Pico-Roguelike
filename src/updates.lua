@@ -25,20 +25,6 @@ end
 function update_gameover()
 end
 
-function mov_walk(mob,at)
-  mob.ox=mob.sox*(1-at)
-  mob.oy=mob.soy*(1-at)
-end
-
-function mov_bump(mob,at)
-  local tme=at
-  if at>0.5 then
-    tme=1-at
-  end
-    mob.ox=mob.sox*tme
-    mob.oy=mob.soy*tme
-end
-
 function dobuttbuff()
   if buttbuff==-1 then
     buttbuff=getbutt()

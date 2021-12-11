@@ -16,3 +16,17 @@ function addmob(typ,mx,my)
   add(mob,m)
   return m
 end
+
+function mov_walk(mob,at)
+  mob.ox=mob.sox*(1-at)
+  mob.oy=mob.soy*(1-at)
+end
+
+function mov_bump(mob,at)
+  local tme=at
+  if at>0.5 then
+    tme=1-at
+  end
+    mob.ox=mob.sox*tme
+    mob.oy=mob.soy*tme
+end

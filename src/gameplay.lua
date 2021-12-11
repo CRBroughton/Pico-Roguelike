@@ -8,7 +8,7 @@ function moveplayer(dx,dy)
 		p_mob.flp=false
 	end
 
-	if iswalkable(destx,desty) then
+	if iswalkable(destx,desty,'checkmobs') then
 		sfx(63)
 		p_mob.x+=dx
 		p_mob.y+=dy
@@ -67,10 +67,14 @@ function getmob(x,y)
   return false
 end
 
-function iswalkable(x,y)
+function iswalkable(x,y,mode)
+  if mode==nil then mode='' end
 	if inbounds(x,y) then
 	  local tle=mget(x,y)
     if fget(tle,0)==false then
+      if mode=='checkmobs' then
+        return getmob(x,y)==false
+      end
       return true
     end
   end

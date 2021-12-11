@@ -10,6 +10,9 @@ function draw_game()
     end
     drawspr(getframe(m.ani),m.x*8+m.ox,m.y*8+m.oy,col,m.flp)
   end
+  for f in all(float) do
+    oprint8(f.txt,f.x,f.y,f.c,0)
+  end
 end
   
 function draw_gameover()

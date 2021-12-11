@@ -80,8 +80,12 @@ function inbounds(x,y)
 end
 
 function hitmob(atkm,defm)
-  defm.hp-=atkm.atk
+  local dmg=atkm.atk
+  defm.hp-=dmg
   defm.flash=10
+
+  addfloat('-'..dmg,defm.x*8,defm.y*8,9)
+
   if defm.hp<=0 then
     -- hp is zero
     del(mob,defm)

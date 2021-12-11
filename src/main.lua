@@ -17,6 +17,7 @@ end
 function _update60()
   t+=1
   _upd()
+  dofloats()
 end
 
 function _draw()
@@ -37,5 +38,6 @@ function startgame()
   p_t=0
 
   wind={}
+  float={}
   talkwind=nil
 end

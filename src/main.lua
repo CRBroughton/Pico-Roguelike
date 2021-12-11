@@ -6,6 +6,8 @@ function _init()
   diry={0,0,-1,1,-1,1,1,-1}
 
   mob_ani={240,192}
+  mob_atk={1,1}
+  mob_hp={5,2}
 
   _upd=update_game
   _drw=draw_game
@@ -15,6 +17,7 @@ end
 function _update60()
   t+=1
   _upd()
+  dofloats()
 end
 
 function _draw()
@@ -28,9 +31,13 @@ function startgame()
   mob={}
   p_mob=addmob(1,1,1)
   addmob(2,2,3)
+  addmob(2,2,11)
+  addmob(2,7,12)
+
 
   p_t=0
 
   wind={}
+  float={}
   talkwind=nil
 end

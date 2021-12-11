@@ -30,6 +30,9 @@ function startgame()
   mob={}
   p_mob=addmob(1,1,1)
   addmob(2,2,3)
+  addmob(2,2,11)
+  addmob(2,7,12)
+
 
   p_t=0
 

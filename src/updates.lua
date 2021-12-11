@@ -15,7 +15,7 @@ function update_pturn()
   dobuttbuff()
   p_t=min(p_t+0.1,1)
 
-  p_mov()
+  p_mob.mov(p_mob,p_t)
 
   if p_t==1 then
     _upd=update_game
@@ -25,18 +25,18 @@ end
 function update_gameover()
 end
 
-function mov_walk()
-  p_ox=p_sox*(1-p_t)
-  p_oy=p_soy*(1-p_t)
+function mov_walk(mob,at)
+  mob.ox=mob.sox*(1-at)
+  mob.oy=mob.soy*(1-at)
 end
 
-function mov_bump()
-  local tme=p_t
-  if p_t>0.5 then
-    tme=1-p_t
+function mov_bump(mob,at)
+  local tme=at
+  if at>0.5 then
+    tme=1-at
   end
-    p_ox=p_sox*tme
-    p_oy=p_soy*tme
+    mob.ox=mob.sox*tme
+    mob.oy=mob.soy*tme
 end
 
 function dobuttbuff()

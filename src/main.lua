@@ -5,6 +5,8 @@ function _init()
   dirx={-1,1,0,0,1,1,-1,-1}
   diry={0,0,-1,1,-1,1,1,-1}
 
+  mob_ani={240,192}
+
   _upd=update_game
   _drw=draw_game
   startgame()
@@ -24,15 +26,9 @@ function startgame()
   buttbuff=-1
 
   mob={}
-  addmob(0,2,3)
-  p_x=1
-  p_y=1
-  p_ox=0
-  p_oy=0
-  p_sox=0
-  p_soy=0
-  p_flip=false
-  p_mov=nil
+  p_mob=addmob(1,1,1)
+  addmob(2,2,3)
+
   p_t=0
 
   wind={}

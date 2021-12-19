@@ -9,8 +9,6 @@ function _init()
   mob_atk={1,1}
   mob_hp={5,2}
 
-  _upd=update_game
-  _drw=draw_game
   debug={}
   startgame()
 end
@@ -52,4 +50,6 @@ function startgame()
   wind={}
   float={}
   talkwind=nil
+  _upd=update_game
+  _drw=draw_game
 end

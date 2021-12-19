@@ -19,9 +19,27 @@ function update_pturn()
 
   if p_t==1 then
     _upd=update_game
+    doai()
   end
 end
   
+function update_aiturn()
+  dobuttbuff()
+  p_t=min(p_t+0.1,1)
+
+  for m in all(mob) do
+    if m !=p_mob then
+      if m.mov and m.mov then
+        m.mov(m,p_t)
+      end
+    end
+  end
+
+  if p_t==1 then
+    _upd=update_game
+  end
+end
+
 function update_gameover()
 end
 

@@ -34,3 +34,8 @@ function oprint8(_t,_x,_y,_c,_c2)
   end 
   print(_t,_x,_y,_c)
 end
+
+function dist(fx,fy,tx,ty)
+  local dx,dy=fx-tx,fy-ty
+  return sqrt(dx*dx+dy*dy)
+end

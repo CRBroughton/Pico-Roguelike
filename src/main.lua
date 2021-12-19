@@ -33,7 +33,7 @@ function startgame()
   buttbuff=-1
 
   mob={}
-  demob={}
+  dmob={}
   p_mob=addmob(1,1,1)
 
   for x=0,15 do

@@ -90,7 +90,7 @@ function hitmob(atkm,defm)
     -- hp is zero
     add(dmob,defm)
     del(mob,defm)
-    defm.dur=10
+    defm.dur=60
   end
 end
 

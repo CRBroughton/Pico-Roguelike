@@ -14,7 +14,7 @@
   -- finally we +1 to match lua arrays starting at 1
   
 function getframe(ani)
-  return ani[flr(t/16)%#ani+1]
+  return ani[flr(t/15)%#ani+1]
 end
 
 function drawspr(_spr, _x, _y, _c, _flip)

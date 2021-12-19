@@ -13,7 +13,7 @@ end
 
 function update_pturn()
   dobuttbuff()
-  p_t=min(p_t+0.2,1)
+  p_t=min(p_t+0.125,1)
 
   p_mob.mov(p_mob,p_t)
 
@@ -27,7 +27,7 @@ end
   
 function update_aiturn()
   dobuttbuff()
-  p_t=min(p_t+0.1,1)
+  p_t=min(p_t+0.125,1)
 
   for m in all(mob) do
     if m !=p_mob and m.mov then

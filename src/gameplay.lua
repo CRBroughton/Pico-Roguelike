@@ -91,3 +91,12 @@ function hitmob(atkm,defm)
     del(mob,defm)
   end
 end
+
+function checkend()
+  if p_mob.hp<=0 then
+   _upd=update_gover
+   _drw=draw_gover
+   return false
+  end
+  return true
+ end

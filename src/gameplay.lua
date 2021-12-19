@@ -88,7 +88,9 @@ function hitmob(atkm,defm)
 
   if defm.hp<=0 then
     -- hp is zero
+    add(dmob,defm)
     del(mob,defm)
+    defm.dur=10
   end
 end
 

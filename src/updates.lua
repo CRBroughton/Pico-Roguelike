@@ -19,8 +19,9 @@ function update_pturn()
 
   if p_t==1 then
     _upd=update_game
-    doai()
-    checkend()
+    if checkend() then
+      doai()
+    end
   end
 end
   

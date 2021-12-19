@@ -68,10 +68,12 @@ function doai()
       m.mov=nil
       if dist(m.x,m.y,p_mob.x,p_mob.y)==1 then
         --attack player
+        dx,dy=p_mob.x-m.x,p_mob.y-m.y
+        mobbump(m,dx,dy)
+        hitmob(m,p_mob)
+        sfx(57)
       else
         --move towards player
-      
-
         local bdst,bx,by=999,0,0
         for i=1,4 do
           local dx,dy=dirx[i],diry[i]

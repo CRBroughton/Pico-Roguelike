@@ -29,7 +29,7 @@ function update_aiturn()
 
   for m in all(mob) do
     if m !=p_mob then
-      if m.mov then
+      if m.mov and m.mov then
         m.mov(m,p_t)
       end
     end

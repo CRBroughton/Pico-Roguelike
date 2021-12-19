@@ -65,20 +65,28 @@ function doai()
   --debug={}
   for m in all(mob) do
     if m !=p_mob then
-      local bdst,bx,by=999,0,0
-      for i=1,4 do
-        local dx,dy=dirx[i],diry[i]
-        local tx,ty=m.x+dx,m.y+dy
-        if iswalkable(tx,ty,"checkmobs") then
-          local dst=dist(tx,ty,p_mob.x,p_mob.y)
-          if dst<bdst then
-            bdst,bx,by=dst,dx,dy
+      m.mov=nil
+      if dist(m.x,m.y,p_mob.x,p_mob.y)==1 then
+        --attack player
+      else
+        --move towards player
+      
+
+        local bdst,bx,by=999,0,0
+        for i=1,4 do
+          local dx,dy=dirx[i],diry[i]
+          local tx,ty=m.x+dx,m.y+dy
+          if iswalkable(tx,ty,"checkmobs") then
+            local dst=dist(tx,ty,p_mob.x,p_mob.y)
+            if dst<bdst then
+              bdst,bx,by=dst,dx,dy
+            end
           end
         end
+        mobwalk(m,bx,by)
+        _upd=update_aiturn
+        p_t=0
       end
-      mobwalk(m,bx,by)
-      _upd=update_aiturn
-      p_t=0
     end
   end
 end

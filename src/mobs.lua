@@ -62,6 +62,7 @@ function mov_bump(mb,at)
 end
 
 function doai()
+  --debug={}
   for m in all(mob) do
     if m !=p_mob then
       local bdst,bx,by=999,0,0

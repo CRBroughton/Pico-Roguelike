@@ -11,6 +11,7 @@ function _init()
 
   _upd=update_game
   _drw=draw_game
+  debug={}
   startgame()
 end
 
@@ -23,6 +24,11 @@ end
 function _draw()
   _drw()
   drawind()
+  cursor(4,4)
+  color(8)
+  for txt in all(debug) do
+    print(txt)
+  end
 end
 
 function startgame()

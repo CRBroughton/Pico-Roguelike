@@ -60,3 +60,21 @@ function mov_bump(mb,at)
     mb.ox=mb.sox*tme
     mb.oy=mb.soy*tme
 end
+
+function doai()
+  for m in all(mob) do
+    if m !=p_mob then
+      local bdst,bx,by=999,0,0
+      for i=1,4 do
+        local dx,dy=dirx[i],diry[i]
+        local dst=dist(m.x+dx,m.y+dy,p_mob.x,p_mob.y)
+        if dst<bdst then
+          bdst,bx,by=dst,dx,dy
+        end
+      end
+      mobwalk(m,bx,by)
+      _upd=update_aiturn
+      p_t=0
+    end
+  end
+end

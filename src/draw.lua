@@ -15,6 +15,8 @@ function draw_game()
   end
 end
   
-function draw_gameover()
-  
+function draw_gover()
+ cls(2)
+ print("y ded",50,50,7)
+ 
 end

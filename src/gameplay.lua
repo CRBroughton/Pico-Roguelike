@@ -88,6 +88,17 @@ function hitmob(atkm,defm)
 
   if defm.hp<=0 then
     -- hp is zero
+    add(dmob,defm)
     del(mob,defm)
+    defm.dur=10
   end
 end
+
+function checkend()
+  if p_mob.hp<=0 then
+   _upd=update_gover
+   _drw=draw_gover
+   return false
+  end
+  return true
+ end

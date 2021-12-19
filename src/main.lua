@@ -9,8 +9,6 @@ function _init()
   mob_atk={1,1}
   mob_hp={5,2}
 
-  _upd=update_game
-  _drw=draw_game
   debug={}
   startgame()
 end
@@ -35,13 +33,14 @@ function startgame()
   buttbuff=-1
 
   mob={}
+  dmob={}
   p_mob=addmob(1,1,1)
 
   for x=0,15 do
     for y=0,15 do
-      if mget(x,y)==192 then
+      if mget(x,y)==3 then
         addmob(2,x,y)
-        mset(x,y,1)
+        -- mset(x,y,1)
       end
     end
   end
@@ -52,4 +51,6 @@ function startgame()
   wind={}
   float={}
   talkwind=nil
+  _upd=update_game
+  _drw=draw_game
 end

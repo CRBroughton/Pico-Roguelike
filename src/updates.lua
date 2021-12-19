@@ -13,34 +13,38 @@ end
 
 function update_pturn()
   dobuttbuff()
-  p_t=min(p_t+0.1,1)
+  p_t=min(p_t+0.125,1)
 
   p_mob.mov(p_mob,p_t)
 
   if p_t==1 then
     _upd=update_game
-    doai()
+    if checkend() then
+      doai()
+    end
   end
 end
   
 function update_aiturn()
   dobuttbuff()
-  p_t=min(p_t+0.1,1)
+  p_t=min(p_t+0.125,1)
 
   for m in all(mob) do
-    if m !=p_mob then
-      if m.mov and m.mov then
+    if m !=p_mob and m.mov then
         m.mov(m,p_t)
       end
-    end
   end
 
   if p_t==1 then
     _upd=update_game
+    checkend()
   end
 end
 
-function update_gameover()
+function update_gover()
+  if btnp(5) then
+    startgame()
+  end
 end
 
 function dobuttbuff()

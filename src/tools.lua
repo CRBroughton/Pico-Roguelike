@@ -57,4 +57,11 @@ function checkfade()
    fadeperc=max(fadeperc-0.04,0)
    dofade()
   end
-end 
+end
+
+function wait(_wait)
+  repeat
+   _wait-=1
+   flip()
+  until _wait<0
+end

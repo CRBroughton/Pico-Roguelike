@@ -56,6 +56,9 @@ function startgame()
   wind={}
   float={}
   talkwind=nil
+
+  hpwind=addwind(5,5,28,13,{"♥5/5"})
+
   _upd=update_game
   _drw=draw_game
 end

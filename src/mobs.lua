@@ -109,6 +109,10 @@ function ai_attac(m)
       end
       mobwalk(m,bx,by)
       _upd=update_aiturn
+      -- smarter ai
+      -- if los(m.x,m.y,p_mob.x,p_mob.y) then
+      --   m.tx,m.ty=p_mob.x,p_mob.y
+      -- end
       p_t=0
     end
   end

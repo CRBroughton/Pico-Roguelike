@@ -23,6 +23,7 @@ function _update60()
 end
 
 function _draw()
+  dohpwind()
   _drw()
   drawind()
   checkfade()
@@ -57,7 +58,7 @@ function startgame()
   float={}
   talkwind=nil
 
-  hpwind=addwind(5,5,28,13,{"♥5/5"})
+  hpwind=addwind(5,5,28,13,{})
 
   _upd=update_game
   _drw=draw_game

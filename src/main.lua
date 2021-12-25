@@ -25,7 +25,7 @@ end
 function _draw()
   _drw()
   drawind()
-  dofade()
+  checkfade()
   cursor(4,4)
   color(8)
   for txt in all(debug) do
@@ -34,6 +34,7 @@ function _draw()
 end
 
 function startgame()
+  fadeperc=1
   buttbuff=-1
 
   mob={}

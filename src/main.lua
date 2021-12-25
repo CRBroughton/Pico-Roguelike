@@ -1,5 +1,8 @@
 function _init()
   t=0
+
+  dpal={0,1,1,2,1,13,6,4,4,9,3,13,1,13,14}
+
   p_ani={240,241,242,243}
 
   dirx={-1,1,0,0,1,1,-1,-1}
@@ -20,8 +23,10 @@ function _update60()
 end
 
 function _draw()
+  dohpwind()
   _drw()
   drawind()
+  checkfade()
   cursor(4,4)
   color(8)
   for txt in all(debug) do
@@ -30,6 +35,7 @@ function _draw()
 end
 
 function startgame()
+  fadeperc=1
   buttbuff=-1
 
   mob={}
@@ -51,6 +57,9 @@ function startgame()
   wind={}
   float={}
   talkwind=nil
+
+  hpwind=addwind(5,5,28,13,{})
+
   _upd=update_game
   _drw=draw_game
 end

@@ -100,6 +100,7 @@ function checkend()
    _upd=update_gover
    _drw=draw_gover
    fadeout(0.02)
+   reload(0x2000,0x2000,0x1000)
    return false
   end
   return true

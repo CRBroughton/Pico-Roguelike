@@ -60,12 +60,17 @@ function mov_bump(mb,at)
 end
 
 function doai()
+  local moving=false
   --debug={}
   for m in all(mob) do
     if m !=p_mob then
       m.mov=nil
-      m.task(m)
+      moving=m.task(m)
     end
+  end
+  if moving then
+    _upd=update_aiturn
+    p_t=0
   end
 end
 
@@ -75,7 +80,9 @@ function ai_wait(m)
     m.task=ai_attac
     m.tx,m.ty=p_mob.x,p_mob.y
     addfloat('!',m.x*8+2,m.y*8,10)
+    return true
   end
+  return false
 end
 
 function ai_attac(m)
@@ -84,9 +91,8 @@ function ai_attac(m)
     local dx,dy=p_mob.x-m.x,p_mob.y-m.y
     mobbump(m,dx,dy)
     hitmob(m,p_mob)
-    _upd=update_aiturn
-    p_t=0
     sfx(57)
+    return true
   else
       --move towards player
     if los(m.x,m.y,p_mob.x,p_mob.y) then
@@ -110,12 +116,12 @@ function ai_attac(m)
         end
       end
       mobwalk(m,bx,by)
-      _upd=update_aiturn
+      return true
       -- smarter ai
       -- if los(m.x,m.y,p_mob.x,p_mob.y) then
       --   m.tx,m.ty=p_mob.x,p_mob.y
       -- end
-      p_t=0
     end
   end
+  return false
 end

@@ -51,3 +51,10 @@ function dofade()
    pal(j,col,1)
   end
 end
+
+function checkfade()
+  if fadeperc>0 then
+   fadeperc=max(fadeperc-0.04,0)
+   dofade()
+  end
+end 

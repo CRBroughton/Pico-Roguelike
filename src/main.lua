@@ -25,6 +25,7 @@ end
 function _draw()
   _drw()
   drawind()
+  dofade()
   cursor(4,4)
   color(8)
   for txt in all(debug) do

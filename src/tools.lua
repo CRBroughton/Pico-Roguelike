@@ -65,3 +65,14 @@ function wait(_wait)
    flip()
   until _wait<0
 end
+
+function fadeout(spd,_wait)
+  if (spd==nil) spd=0.04
+  if (_wait==nil) _wait=0
+  repeat
+   fadeperc=min(fadeperc+spd,1)
+   dofade()
+   flip()
+  until fadeperc==1
+  wait(_wait)
+end

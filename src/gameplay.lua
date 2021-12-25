@@ -104,3 +104,39 @@ function checkend()
   end
   return true
  end
+
+function los(x1,y1,x2,y2)
+  local frst,sx,sy,dx,dy=true
+  --★
+  if dist(x1,y1,x2,y2)==1 then return true end
+  if x1<x2 then
+   sx=1
+   dx=x2-x1
+  else
+   sx=-1
+   dx=x1-x2
+  end
+  if y1<y2 then
+   sy=1
+   dy=y2-y1
+  else
+   sy=-1
+   dy=y1-y2
+  end
+  local err, e2 = dx-dy, nil
+  
+  while not(x1==x2 and y1==y2) do
+   if not frst and iswalkable(x1,y1,"sight")==false then return false end
+   frst=false
+   e2=err+err
+   if e2>-dy then
+    err=err-dy
+    x1=x1+sx
+   end
+   if e2<dx then
+    err=err+dx
+    y1=y1+sy
+   end
+  end
+  return true 
+end

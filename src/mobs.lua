@@ -65,7 +65,7 @@ function doai()
   for m in all(mob) do
     if m !=p_mob then
       m.mov=nil
-      moving=m.task(m)
+      moving=m.task(m) or moving
     end
   end
   if moving then

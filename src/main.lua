@@ -56,6 +56,7 @@ function startgame()
 
   wind={}
   float={}
+  fog=blankmap(1)
   talkwind=nil
 
   hpwind=addwind(5,5,28,13,{})

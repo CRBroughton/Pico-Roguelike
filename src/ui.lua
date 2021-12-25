@@ -67,3 +67,13 @@ function dofloats()
     end
   end
 end
+
+function dohpwind()
+  hpwind.txt[1]="♥"..p_mob.hp.."/"..p_mob.hpmax
+  local hpy=5
+
+  if p_mob.y<8 then
+    hpy=110
+  end
+  hpwind.y+=(hpy-hpwind.y)/5
+end

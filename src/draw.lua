@@ -18,6 +18,14 @@ function draw_game()
   end
  end
  drawmob(p_mob)
+
+for x=0,15 do
+  for y=0,15 do
+    if fog[x][y]==1 then
+      rectfill2(x*8,y*8,8,8,0)
+    end
+  end
+end
  
  for f in all(float) do
   oprint8(f.txt,f.x,f.y,f.c,0)

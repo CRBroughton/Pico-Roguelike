@@ -20,10 +20,10 @@ function _update60()
   t+=1
   _upd()
   dofloats()
+  dohpwind()
 end
 
 function _draw()
-  dohpwind()
   _drw()
   drawind()
   checkfade()
@@ -44,9 +44,9 @@ function startgame()
 
   for x=0,15 do
     for y=0,15 do
-      if mget(x,y)==3 then
+      if mget(x,y)==192 then
         addmob(2,x,y)
-        -- mset(x,y,1)
+        mset(x,y,1)
       end
     end
   end
@@ -56,10 +56,12 @@ function startgame()
 
   wind={}
   float={}
+  fog=blankmap(1)
   talkwind=nil
 
   hpwind=addwind(5,5,28,13,{})
 
   _upd=update_game
   _drw=draw_game
+  unfog(p_mob.x,p_mob.y)
 end

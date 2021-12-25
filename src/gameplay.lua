@@ -23,6 +23,7 @@ function moveplayer(dx,dy)
       hitmob(p_mob,mob)
     end
 	end
+  unfog()
 end
 
 function trig_bump(tle,destx,desty)
@@ -100,6 +101,7 @@ function checkend()
    _upd=update_gover
    _drw=draw_gover
    fadeout(0.02)
+   reload(0x2000,0x2000,0x1000)
    return false
   end
   return true
@@ -139,4 +141,14 @@ function los(x1,y1,x2,y2)
    end
   end
   return true 
+end
+
+function unfog()
+  for x=0,15 do
+    for y=0,15 do
+      if los(p_mob.x,p_mob.y,x,y) then
+        fog[x][y]=0
+      end
+    end
+  end
 end

@@ -76,3 +76,16 @@ function fadeout(spd,_wait)
   until fadeperc==1
   wait(_wait)
 end
+
+function blankmap(_dflt)
+  local ret={} 
+  if (_dflt==nil) _dflt=0
+  
+  for x=0,15 do
+   ret[x]={}
+   for y=0,15 do
+    ret[x][y]=_dflt
+   end
+  end
+  return ret
+end

@@ -50,4 +50,4 @@ function dofade()
    end
    pal(j,col,1)
   end
- end
+end

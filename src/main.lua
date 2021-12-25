@@ -20,10 +20,10 @@ function _update60()
   t+=1
   _upd()
   dofloats()
+  dohpwind()
 end
 
 function _draw()
-  dohpwind()
   _drw()
   drawind()
   checkfade()

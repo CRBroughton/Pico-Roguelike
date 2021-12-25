@@ -81,9 +81,11 @@ end
 function ai_attac(m)
   if dist(m.x,m.y,p_mob.x,p_mob.y)==1 then
     --attack player
-    dx,dy=p_mob.x-m.x,p_mob.y-m.y
+    local dx,dy=p_mob.x-m.x,p_mob.y-m.y
     mobbump(m,dx,dy)
     hitmob(m,p_mob)
+    _upd=update_aiturn
+    p_t=0
     sfx(57)
   else
       --move towards player

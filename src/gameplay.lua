@@ -98,6 +98,7 @@ function checkend()
   if p_mob.hp<=0 then
    _upd=update_gover
    _drw=draw_gover
+   fadeout(0.02)
    return false
   end
   return true

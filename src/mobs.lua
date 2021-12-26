@@ -39,25 +39,19 @@ function mobbump(mb,dx,dy)
 end
 
 function mobflip(mb,dx)
-  if dx<0 then
-		mb.flp=true
-	elseif dx>0 then
-		mb.flp=false
-	end
+  mb.flp=dx==0 and mb.flp or dx<0
 end
 
-function mov_walk(mb,at)
-  mb.ox=mb.sox*(1-at)
-  mb.oy=mb.soy*(1-at)
+function mov_walk(self)
+  local tme=1-p_t
+  self.ox=self.sox*tme
+  self.oy=self.soy*tme
 end
 
-function mov_bump(mb,at)
-  local tme=at
-  if at>0.5 then
-    tme=1-at
-  end
-    mb.ox=mb.sox*tme
-    mb.oy=mb.soy*tme
+function mov_bump(self)
+  local tme=p_t>0.5 and 1-p_t or p_t
+  self.ox=self.sox*tme
+  self.oy=self.soy*tme
 end
 
 function doai()

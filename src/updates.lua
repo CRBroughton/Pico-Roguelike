@@ -22,6 +22,8 @@ function update_pturn()
     if checkend() then
       doai()
     end
+  -- view calcmap with updates
+  calcdist(p_mob.x,p_mob.y)
   end
 end
   

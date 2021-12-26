@@ -10,7 +10,8 @@ function addmob(typ,mx,my)
     hp=mob_hp[typ],
     hpmax=mob_hp[typ],
     atk=mob_atk[typ],
-    task=ai_wait
+    los=mob_los[typ],
+    task=ai_wait,
   }
   for i=0,3 do
     add(m.ani,mob_ani[typ]+i)
@@ -61,7 +62,6 @@ end
 
 function doai()
   local moving=false
-  --debug={}
   for m in all(mob) do
     if m !=p_mob then
       m.mov=nil
@@ -75,7 +75,7 @@ function doai()
 end
 
 function ai_wait(m)
-  if los(m.x,m.y,p_mob.x,p_mob.y) then
+  if cansee(m,p_mob) then
     --aggro
     m.task=ai_attac
     m.tx,m.ty=p_mob.x,p_mob.y
@@ -95,7 +95,7 @@ function ai_attac(m)
     return true
   else
       --move towards player
-    if los(m.x,m.y,p_mob.x,p_mob.y) then
+    if cansee(m,p_mob) then
       m.tx,m.ty=p_mob.x,p_mob.y
     end
 
@@ -124,4 +124,8 @@ function ai_attac(m)
     end
   end
   return false
+end
+
+function cansee(m1,m2)
+  return dist(m1.x,m1.y,m2.x,m2.y)<=m1.los and los(m1.x,m1.y,m2.x,m2.y)
 end

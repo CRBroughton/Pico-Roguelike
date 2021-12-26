@@ -44,7 +44,7 @@ function dofade()
   local p,kmax,col,k=flr(mid(0,fadeperc,1)*100)
   for j=1,15 do
    col = j
-   kmax=flr((p+(j*1.46))/22)
+   kmax=flr((p+j*1.46)/22)
    for k=1,kmax do
     col=dpal[col]
    end

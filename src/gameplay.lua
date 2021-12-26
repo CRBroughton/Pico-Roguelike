@@ -14,13 +14,13 @@ function moveplayer(dx,dy)
     _upd=update_pturn
 
     local mob=getmob(destx,desty)
-    if mob==false then
+    if mob then
+      sfx(58)
+      hitmob(p_mob,mob)
+    else
       if fget(tle,1) then
         trig_bump(tle,destx,desty)
       end
-    else
-      sfx(58)
-      hitmob(p_mob,mob)
     end
 	end
   unfog()
@@ -63,15 +63,16 @@ function getmob(x,y)
 end
 
 function iswalkable(x,y,mode)
-  if mode==nil then mode='' end
+  local mode=mode or "test"
+  -- if mode==nil then mode='' end
 	if inbounds(x,y) then
 	  local tle=mget(x,y)
     if mode=="sight" then
       return not fget(tle,2)
     else
-      if fget(tle,0)==false then
+      if not fget(tle,0) then
         if mode=="checkmobs" then
-          return getmob(x,y)==false
+          return not getmob(x,y)
         end
         return true
       end
@@ -116,31 +117,26 @@ function los(x1,y1,x2,y2)
   --★
   if dist(x1,y1,x2,y2)==1 then return true end
   if x1<x2 then
-   sx=1
-   dx=x2-x1
+   sx,dx=1,x2-x1
   else
-   sx=-1
-   dx=x1-x2
+   sx,dx=-1,x1-x2
   end
   if y1<y2 then
-   sy=1
-   dy=y2-y1
+   sy,dy=1,y2-y1
   else
-   sy=-1
-   dy=y1-y2
+   sy,dy=-1,y1-y2
   end
-  local err, e2 = dx-dy, nil
+  local err,e2=dx-dy
   
   while not(x1==x2 and y1==y2) do
    if not frst and iswalkable(x1,y1,"sight")==false then return false end
-   frst=false
-   e2=err+err
+   e2,frst=err+err,false
    if e2>-dy then
-    err=err-dy
+    err-=dy
     x1=x1+sx
    end
    if e2<dx then
-    err=err+dx
+    err+=dx
     y1=y1+sy
    end
   end
@@ -151,7 +147,7 @@ function unfog()
   local px,py=p_mob.x,p_mob.y
   for x=0,15 do
     for y=0,15 do
-      if  dist(px,py,x,y)<=p_mob.los and los(px,py,x,y) then
+      if fog[x][y]==1 and dist(px,py,x,y)<=p_mob.los and los(px,py,x,y) then
         unfogtile(x,y)
       end
     end

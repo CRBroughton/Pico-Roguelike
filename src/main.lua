@@ -11,6 +11,7 @@ function _init()
   mob_ani={240,192}
   mob_atk={1,1}
   mob_hp={5,2}
+  mob_los={4,4}
 
   startgame()
 end

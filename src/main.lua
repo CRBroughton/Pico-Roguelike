@@ -60,5 +60,4 @@ function startgame()
   _upd=update_game
   _drw=draw_game
   unfog(p_mob.x,p_mob.y)
-  calcdist(p_mob.x,p_mob.y)
 end

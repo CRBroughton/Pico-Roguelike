@@ -66,11 +66,15 @@ function iswalkable(x,y,mode)
   if mode==nil then mode='' end
 	if inbounds(x,y) then
 	  local tle=mget(x,y)
-    if fget(tle,0)==false then
-      if mode=='checkmobs' then
-        return getmob(x,y)==false
+    if mode=="sight" then
+      return not fget(tle,2)
+    else
+      if fget(tle,0)==false then
+        if mode=="checkmobs" then
+          return getmob(x,y)==false
+        end
+        return true
       end
-      return true
     end
   end
   return false

@@ -148,9 +148,10 @@ function los(x1,y1,x2,y2)
 end
 
 function unfog()
+  local px,py=p_mob.x,p_mob.y
   for x=0,15 do
     for y=0,15 do
-      if los(p_mob.x,p_mob.y,x,y) then
+      if  dist(px,py,x,y)<=p_mob.los and los(px,py,x,y) then
         unfogtile(x,y)
       end
     end

@@ -12,7 +12,6 @@ function _init()
   mob_atk={1,1}
   mob_hp={5,2}
 
-  debug={}
   startgame()
 end
 
@@ -29,9 +28,7 @@ function _draw()
   checkfade()
   cursor(4,4)
   color(8)
-  for txt in all(debug) do
-    print(txt)
-  end
+
 end
 
 function startgame()

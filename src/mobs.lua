@@ -61,7 +61,6 @@ end
 
 function doai()
   local moving=false
-  --debug={}
   for m in all(mob) do
     if m !=p_mob then
       m.mov=nil

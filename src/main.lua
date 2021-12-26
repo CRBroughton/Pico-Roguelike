@@ -52,7 +52,7 @@ function startgame()
 
   wind={}
   float={}
-  fog=blankmap(1)
+  fog=blankmap(0)
   talkwind=nil
 
   hpwind=addwind(5,5,28,13,{})
@@ -60,4 +60,5 @@ function startgame()
   _upd=update_game
   _drw=draw_game
   unfog(p_mob.x,p_mob.y)
+  calcdist(p_mob.x,p_mob.y)
 end

@@ -165,3 +165,25 @@ function unfogtile(x,y)
     end
   end
 end
+
+function calcdist(tx,ty)
+  local cand,step={},0
+  distmap=blankmap(-1)
+  add(cand,{x=tx,y=ty})
+
+  repeat
+    candnew={}
+    for c in all(cand) do
+      distmap[c.x][c.y]=step
+      for d=1,4 do
+        local dx=c.x+dirx[d]
+        local dy=c.y+diry[d]
+        if inbounds(dx, dy) and distmap[dx][dy]==-1 and iswalkable(dx,dy) then
+          add(candnew,{x=dx,y=dy})
+        end
+      end
+    end
+    cand=candnew
+    step+=1
+  until #cand==0
+end

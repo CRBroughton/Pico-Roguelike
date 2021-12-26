@@ -99,11 +99,12 @@ function ai_attac(m)
       addfloat('?',m.x*8+2,m.y*8,10)
     else
       local bdst,bx,by=999,0,0
+      calcdist(m.tx,m.ty)
       for i=1,4 do
         local dx,dy=dirx[i],diry[i]
         local tx,ty=m.x+dx,m.y+dy
         if iswalkable(tx,ty,"checkmobs") then
-          local dst=dist(tx,ty,m.tx,m.ty)
+          local dst=distmap[tx][ty]
           if dst<bdst then
             bdst,bx,by=dst,dx,dy
           end

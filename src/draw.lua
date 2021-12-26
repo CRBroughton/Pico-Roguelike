@@ -27,6 +27,17 @@ end
  for f in all(float) do
   oprint8(f.txt,f.x,f.y,f.c,0)
  end
+ 
+ -- view calcmap overlay
+
+--  for x=0,15 do
+--   for y=0,15 do
+--     if distmap[x][y]>=0 then
+--       print(distmap[x][y],x*8,y*8,8)
+--       end
+--     end
+--   end
+
 end
 
 function drawmob(m)

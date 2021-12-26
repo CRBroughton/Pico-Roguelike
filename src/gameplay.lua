@@ -66,11 +66,15 @@ function iswalkable(x,y,mode)
   if mode==nil then mode='' end
 	if inbounds(x,y) then
 	  local tle=mget(x,y)
-    if fget(tle,0)==false then
-      if mode=='checkmobs' then
-        return getmob(x,y)==false
+    if mode=="sight" then
+      return not fget(tle,2)
+    else
+      if fget(tle,0)==false then
+        if mode=="checkmobs" then
+          return getmob(x,y)==false
+        end
+        return true
       end
-      return true
     end
   end
   return false
@@ -144,10 +148,23 @@ function los(x1,y1,x2,y2)
 end
 
 function unfog()
+  local px,py=p_mob.x,p_mob.y
   for x=0,15 do
     for y=0,15 do
-      if los(p_mob.x,p_mob.y,x,y) then
-        fog[x][y]=0
+      if  dist(px,py,x,y)<=p_mob.los and los(px,py,x,y) then
+        unfogtile(x,y)
+      end
+    end
+  end
+end
+
+function unfogtile(x,y)
+  fog[x][y]=0
+  if iswalkable(x,y,"sight") then
+    for i=1,4 do
+      local tx,ty=x+dirx[i],y+diry[i]
+      if inbounds(tx,ty) and not iswalkable(tx,ty,"sight") then
+        fog[tx][ty]=0
       end
     end
   end

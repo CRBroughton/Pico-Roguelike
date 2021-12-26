@@ -151,7 +151,19 @@ function unfog()
   for x=0,15 do
     for y=0,15 do
       if los(p_mob.x,p_mob.y,x,y) then
-        fog[x][y]=0
+        unfogtile(x,y)
+      end
+    end
+  end
+end
+
+function unfogtile(x,y)
+  fog[x][y]=0
+  if iswalkable(x,y,"sight") then
+    for i=1,4 do
+      local tx,ty=x+dirx[i],y+diry[i]
+      if inbounds(tx,ty) and not iswalkable(tx,ty,"sight") then
+        fog[tx][ty]=0
       end
     end
   end

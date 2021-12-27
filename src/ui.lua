@@ -24,7 +24,7 @@ function drawind()
       local txt=w.txt[i]
       print(txt,wx,wy,6)
       if i==w.cur then
-        spr(255,wx-5,wy)
+        spr(255,wx-5+min(sin(time())),wy)
       end
     
       wy+=6

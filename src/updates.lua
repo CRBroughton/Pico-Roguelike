@@ -11,6 +11,13 @@ function update_game()
   end
 end
 
+function update_inv()
+  if btnp(4) then
+    _upd=update_game
+    invwind.dur=0
+  end
+end
+
 function update_pturn()
   dobuttbuff()
   p_t=min(p_t+0.125,1)
@@ -71,6 +78,8 @@ function dobutt(butt)
   end
   if butt<4 then
     moveplayer(dirx[butt+1],diry[butt+1])
+  elseif butt==4 then
+    showinv()
   end
     -- menu button
 end

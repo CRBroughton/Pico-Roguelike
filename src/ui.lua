@@ -77,3 +77,9 @@ function dohpwind()
   end
   hpwind.y+=(hpy-hpwind.y)/5
 end
+
+function showinv()
+  _upd=update_inv
+
+  invwind=addwind(5,17,84,62,{"hello world"})
+end

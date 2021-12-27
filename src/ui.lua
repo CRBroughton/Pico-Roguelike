@@ -21,8 +21,11 @@ function drawind()
       wx+=6
     end
     for i=1,#w.txt do
-      local txt=w.txt[i]
-      print(txt,wx,wy,6)
+      local txt,c=w.txt[i],6
+      if w.col and w.col[i] then
+        c=w.col[i]
+      end
+      print(txt,wx,wy,c)
       if i==w.cur then
         spr(255,wx-5+min(sin(time())),wy)
       end
@@ -98,4 +101,5 @@ function showinv()
   invwind=addwind(5,17,84,62,txt)
   invwind.curmode=true
   invwind.cur=1
+  invwind.col={6,6,5,6,6,6,5,5}
 end

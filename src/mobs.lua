@@ -98,7 +98,7 @@ function ai_attac(m)
       m.task=ai_wait
       addfloat('?',m.x*8+2,m.y*8,10)
     else
-      local bdst,bx,by=999,0,0
+      local bdst,cand=999,{}
       calcdist(m.tx,m.ty)
       for i=1,4 do
         local dx,dy=dirx[i],diry[i]
@@ -106,12 +106,19 @@ function ai_attac(m)
         if iswalkable(tx,ty,"checkmobs") then
           local dst=distmap[tx][ty]
           if dst<bdst then
-            bdst,bx,by=dst,dx,dy
+            cand={}
+            bdst=dst
+          end
+          if dst==bdst then
+            add(cand,{x=dx,y=dy})
           end
         end
       end
-      mobwalk(m,bx,by)
-      return true
+      if #cand>0 then
+        local c=getrnd(cand)
+        mobwalk(m,c.x,c.y)
+        return true
+      end
       -- smarter ai
       -- if los(m.x,m.y,p_mob.x,p_mob.y) then
       --   m.tx,m.ty=p_mob.x,p_mob.y

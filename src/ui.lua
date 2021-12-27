@@ -49,7 +49,7 @@ function showmsg(txt,dur)
   w.dur=dur
 end
 
-function showmsg(txt)
+function showtalk(txt)
   talkwind=addwind(16,50,94,#txt*6+7,txt)
   talkwind.butt=true
 end

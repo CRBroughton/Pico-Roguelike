@@ -17,9 +17,19 @@ function drawind()
     wx+=4
     wy+=4
     clip(wx,wy,ww-8,wh-8)
+    if w.curmode then
+      wx+=6
+    end
     for i=1,#w.txt do
-      local txt=w.txt[i]
-      print(txt,wx,wy,6)
+      local txt,c=w.txt[i],6
+      if w.col and w.col[i] then
+        c=w.col[i]
+      end
+      print(txt,wx,wy,c)
+      if i==w.cur then
+        spr(255,wx-5+min(sin(time())),wy)
+      end
+    
       wy+=6
     end
 
@@ -76,4 +86,45 @@ function dohpwind()
     hpy=110
   end
   hpwind.y+=(hpy-hpwind.y)/5
+end
+
+function showinv()
+  local txt,col={},{}
+  _upd=update_inv
+  for i=1,2 do
+    local itm,eqt=eqp[i]
+    if itm then
+      eqt=itm_name[itm]
+      add(col,6)
+    else
+      if i==1 then
+        eqt="[weapon]"
+      else
+        eqt="[armour]"
+      end
+      add(col,5)
+    end
+    add(txt,eqt)
+
+  end
+  add(txt,"--------------")
+  add(col,6)
+  for i=1,6 do
+    local itm=inv[i]
+    if itm then
+      add(txt,itm_name[itm])
+      add(col,6)
+    else
+      add(txt,"...")
+      add(col,5)
+    end
+  end
+
+  invwind=addwind(5,17,84,62,txt)
+  invwind.curmode=true
+  invwind.cur=3
+  invwind.col=col
+
+  statwind=addwind(5,5,84,13,{"atk: 1 def: 1"})
+
 end

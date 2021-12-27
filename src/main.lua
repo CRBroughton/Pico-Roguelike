@@ -50,6 +50,8 @@ function startgame()
 
   p_t=0
 
+  inv,eqp={},{}
+
   wind={}
   float={}
   fog=blankmap(0)

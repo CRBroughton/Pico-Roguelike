@@ -17,9 +17,16 @@ function drawind()
     wx+=4
     wy+=4
     clip(wx,wy,ww-8,wh-8)
+    if w.curmode then
+      wx+=6
+    end
     for i=1,#w.txt do
       local txt=w.txt[i]
       print(txt,wx,wy,6)
+      if i==w.cur then
+        spr(255,wx-5,wy)
+      end
+    
       wy+=6
     end
 
@@ -79,7 +86,16 @@ function dohpwind()
 end
 
 function showinv()
+  local txt={}
   _upd=update_inv
-
-  invwind=addwind(5,17,84,62,{"hello world"})
+  add(txt,"golden sword")
+  add(txt,"leather armour")
+  add(txt,"--------------")
+  add(txt,"healing potion")
+  add(txt,"blue scroll")
+  add(txt,"herbs")
+  add(txt,"...")
+  invwind=addwind(5,17,84,62,txt)
+  invwind.curmode=true
+  invwind.cur=1
 end

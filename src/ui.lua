@@ -89,24 +89,27 @@ function dohpwind()
 end
 
 function showinv()
-  local txt={}
+  local txt,col={},{}
   _upd=update_inv
   add(txt,"golden sword")
   add(txt,"leather armour")
   add(txt,"--------------")
+  col={6,6,5}
   for i=1,6 do
     local itm=inv[i]
     if itm then
       add(txt,itm_name[itm])
+      add(col,6)
     else
       add(txt,"...")
+      add(col,5)
     end
   end
 
   invwind=addwind(5,17,84,62,txt)
   invwind.curmode=true
   invwind.cur=3
-  invwind.col={6,6,5,6,6,6,5,5,5}
+  invwind.col=col
 
   statwind=addwind(5,5,84,13,{"atk: 1 def: 1"})
 

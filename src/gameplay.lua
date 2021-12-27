@@ -43,11 +43,11 @@ function trig_bump(tle,destx,desty)
 		-- stone tablet
 		-- showmsg('hello world', 120)
 		if destx==2 and desty==5 then
-			showmsg({"welcome to porklike","","climb the tower","to obtain the","golden kielbasa"})
-		   elseif destx==13 and desty==12 then
-			showmsg({"this is the 2nd message"})
-		   elseif destx==13 and desty==6 then
-			showmsg({"you're almost there!"})
+			showtalk({"welcome to porklike","","climb the tower","to obtain the","golden kielbasa"})
+		elseif destx==13 and desty==12 then
+      showtalk({"this is the 2nd message"})
+		elseif destx==13 and desty==6 then
+      showtalk({"you're almost there!"})
 		end
 		-- addwind(32,64,64,24,{'welcome to the world','of porklike'})
 	end
@@ -133,11 +133,11 @@ function los(x1,y1,x2,y2)
    e2,frst=err+err,false
    if e2>-dy then
     err-=dy
-    x1=x1+sx
+    x1+=sx
    end
    if e2<dx then
     err+=dx
-    y1=y1+sy
+    y1+=sy
    end
   end
   return true 

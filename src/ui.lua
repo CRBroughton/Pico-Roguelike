@@ -91,10 +91,24 @@ end
 function showinv()
   local txt,col={},{}
   _upd=update_inv
-  add(txt,"golden sword")
-  add(txt,"leather armour")
+  for i=1,2 do
+    local itm,eqt=eqp[i]
+    if itm then
+      eqt=itm_name[itm]
+      add(col,6)
+    else
+      if i==1 then
+        eqt="[weapon]"
+      else
+        eqt="[armour]"
+      end
+      add(col,5)
+    end
+    add(txt,eqt)
+
+  end
   add(txt,"--------------")
-  col={6,6,5}
+  add(col,6)
   for i=1,6 do
     local itm=inv[i]
     if itm then

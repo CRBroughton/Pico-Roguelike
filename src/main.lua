@@ -11,6 +11,8 @@ function _init()
   mob_hp={5,2}
   mob_los={4,4}
 
+  itm_name={"broad sword","leather armour","red potion"}
+
   startgame()
 end
 
@@ -51,6 +53,11 @@ function startgame()
   p_t=0
 
   inv,eqp={},{}
+
+  takeitem(1)
+  takeitem(2)
+  takeitem(3)
+
 
   wind={}
   float={}

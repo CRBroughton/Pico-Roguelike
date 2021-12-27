@@ -94,14 +94,19 @@ function showinv()
   add(txt,"golden sword")
   add(txt,"leather armour")
   add(txt,"--------------")
-  add(txt,"healing potion")
-  add(txt,"blue scroll")
-  add(txt,"herbs")
-  add(txt,"...")
+  for i=1,6 do
+    local itm=inv[i]
+    if itm then
+      add(txt,itm_name[itm])
+    else
+      add(txt,"...")
+    end
+  end
+
   invwind=addwind(5,17,84,62,txt)
   invwind.curmode=true
   invwind.cur=3
-  invwind.col={6,6,5,6,6,6,5,5}
+  invwind.col={6,6,5,6,6,6,5,5,5}
 
   statwind=addwind(5,5,84,13,{"atk: 1 def: 1"})
 

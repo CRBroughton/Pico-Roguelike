@@ -100,6 +100,6 @@ function showinv()
   add(txt,"...")
   invwind=addwind(5,17,84,62,txt)
   invwind.curmode=true
-  invwind.cur=1
+  invwind.cur=3
   invwind.col={6,6,5,6,6,6,5,5}
 end

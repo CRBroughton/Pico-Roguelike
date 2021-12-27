@@ -102,4 +102,7 @@ function showinv()
   invwind.curmode=true
   invwind.cur=3
   invwind.col={6,6,5,6,6,6,5,5}
+
+  statwind=addwind(5,5,84,13,{"atk: 1 def: 1"})
+
 end

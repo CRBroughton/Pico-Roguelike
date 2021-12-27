@@ -16,6 +16,7 @@ function update_inv()
   if btnp(4) then
     _upd=update_game
     invwind.dur=0
+    statwind.dur=0
   end
 end
 

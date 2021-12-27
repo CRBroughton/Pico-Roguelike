@@ -12,9 +12,18 @@ function update_game()
 end
 
 function update_inv()
+  mov_mnu(invwind)
   if btnp(4) then
     _upd=update_game
     invwind.dur=0
+  end
+end
+
+function mov_mnu(wnd)
+  if btnp(2) then
+    wnd.cur=wnd.cur-1
+  elseif btnp(3) then
+    wnd.cur=wnd.cur+1
   end
 end
 

@@ -21,9 +21,9 @@ end
 
 function mov_mnu(wnd)
   if btnp(2) then
-    wnd.cur=wnd.cur-1
+    wnd.cur=max(1,wnd.cur-1)
   elseif btnp(3) then
-    wnd.cur=wnd.cur+1
+    wnd.cur=min(#wnd.txt,wnd.cur+1)
   end
 end
 

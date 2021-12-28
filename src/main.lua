@@ -12,6 +12,7 @@ function _init()
   mob_los={4,4}
 
   itm_name={"broad sword","leather armour","red potion"}
+  itm_type={"wep","arm","fud","thr"}
 
   startgame()
 end

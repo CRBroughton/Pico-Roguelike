@@ -17,6 +17,8 @@ function update_inv()
     _upd=update_game
     invwind.dur=0
     statwind.dur=0
+  elseif btnp(5) then
+    showuse()
   end
 end
 

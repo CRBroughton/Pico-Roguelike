@@ -17,7 +17,7 @@ function drawind()
     wx+=4
     wy+=4
     clip(wx,wy,ww-8,wh-8)
-    if w.curmode then
+    if w.cur then
       wx+=6
     end
     for i=1,#w.txt do
@@ -89,19 +89,15 @@ function dohpwind()
 end
 
 function showinv()
-  local txt,col={},{}
+  local txt,col,itm,ept={},{}
   _upd=update_inv
   for i=1,2 do
-    local itm,eqt=eqp[i]
+    local itm=eqp[i]
     if itm then
       eqt=itm_name[itm]
       add(col,6)
     else
-      if i==1 then
-        eqt="[weapon]"
-      else
-        eqt="[armour]"
-      end
+      eqt=i==1 and "[weapon]" or "[armour]"
       add(col,5)
     end
     add(txt,eqt)
@@ -110,7 +106,7 @@ function showinv()
   add(txt,"--------------")
   add(col,6)
   for i=1,6 do
-    local itm=inv[i]
+    itm=inv[i]
     if itm then
       add(txt,itm_name[itm])
       add(col,6)
@@ -121,10 +117,31 @@ function showinv()
   end
 
   invwind=addwind(5,17,84,62,txt)
-  invwind.curmode=true
   invwind.cur=3
   invwind.col=col
 
   statwind=addwind(5,5,84,13,{"atk: 1 def: 1"})
 
+  curwind=invwind
+end
+
+function showuse()
+  local itm=invwind.cur<3 and eqp[invwind.cur] or inv[invwind.cur-3]
+  if itm==nil then return end
+  local typ,txt=itm_type[itm],{}
+
+  if typ=="wep" or typ=="arm" then
+    add(txt,"equip")
+  end
+  if typ=='fud' then
+    add(txt,"eat")
+  end
+  if typ=="thr" or typ=="fud" then
+    add(txt,"throw")
+  end
+  add(txt,"trash")
+
+  usewind=addwind(84,invwind.cur*6+11,36,7+#txt*6,txt)
+  usewind.cur=1
+  curwind=usewind
 end

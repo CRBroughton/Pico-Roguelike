@@ -126,7 +126,7 @@ function showinv()
 end
 
 function showuse()
-  usewind=addwind(84,17,36,25,{"equip","throw","trash"})
+  usewind=addwind(84,invwind.cur*6+11,36,25,{"equip","throw","trash"})
   usewind.cur=1
   curwind=usewind
 end

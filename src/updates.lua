@@ -12,20 +12,31 @@ function update_game()
 end
 
 function update_inv()
-  mov_mnu(invwind)
+  mov_mnu(curwind)
   if btnp(4) then
-    _upd=update_game
-    invwind.dur=0
-    statwind.dur=0
+    if curwind==invwind then
+      _upd=update_game
+      invwind.dur=0
+      statwind.dur=0
+    elseif curwind==usewind then
+      usewind.dur=0
+      curwind=invwind
+    end
+  elseif btnp(5) then
+    if curwind==invwind and invwind.cur!=3 then
+      showuse()
+    elseif curwind==usewind then
+    end
   end
 end
 
 function mov_mnu(wnd)
   if btnp(2) then
-    wnd.cur=max(1,wnd.cur-1)
+    wnd.cur-=1
   elseif btnp(3) then
-    wnd.cur=min(#wnd.txt,wnd.cur+1)
+    wnd.cur+=1
   end
+  wnd.cur=(wnd.cur-1)%#wnd.txt+1
 end
 
 function update_pturn()

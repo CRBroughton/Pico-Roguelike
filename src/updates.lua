@@ -23,9 +23,10 @@ function update_inv()
       curwind=invwind
     end
   elseif btnp(5) then
-    showuse()
-  elseif curwind==usewind then
-    
+    if curwind==invwind and invwind.cur!=3 then
+      showuse()
+    elseif curwind==usewind then
+    end
   end
 end
 

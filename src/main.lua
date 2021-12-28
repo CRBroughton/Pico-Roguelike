@@ -11,7 +11,7 @@ function _init()
   mob_hp={5,2}
   mob_los={4,4}
 
-  itm_name={"broad sword","leather armour","red potion"}
+  itm_name={"broad sword","leather armour","red bean paste","ninja star"}
   itm_type={"wep","arm","fud","thr"}
 
   startgame()
@@ -58,6 +58,8 @@ function startgame()
   takeitem(1)
   takeitem(2)
   takeitem(3)
+  takeitem(4)
+
 
 
   wind={}

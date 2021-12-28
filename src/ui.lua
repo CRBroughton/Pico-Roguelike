@@ -126,7 +126,22 @@ function showinv()
 end
 
 function showuse()
-  usewind=addwind(84,invwind.cur*6+11,36,25,{"equip","throw","trash"})
+  local itm=invwind.cur<3 and eqp[invwind.cur] or inv[invwind.cur-3]
+  if itm==nil then return end
+  local typ,txt=itm_type[itm],{}
+
+  if typ=="wep" or typ=="arm" then
+    add(txt,"equip")
+  end
+  if typ=='fud' then
+    add(txt,"eat")
+  end
+  if typ=="thr" or typ=="fud" then
+    add(txt,"throw")
+  end
+  add(txt,"trash")
+
+  usewind=addwind(84,invwind.cur*6+11,36,7+#txt*6,txt)
   usewind.cur=1
   curwind=usewind
 end

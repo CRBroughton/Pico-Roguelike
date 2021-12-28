@@ -12,13 +12,20 @@ function update_game()
 end
 
 function update_inv()
-  mov_mnu(invwind)
+  mov_mnu(curwind)
   if btnp(4) then
-    _upd=update_game
-    invwind.dur=0
-    statwind.dur=0
+    if curwind==invwind then
+      _upd=update_game
+      invwind.dur=0
+      statwind.dur=0
+    elseif curwind==usewind then
+      usewind.dur=0
+      curwind=invwind
+    end
   elseif btnp(5) then
     showuse()
+  elseif curwind==usewind then
+    
   end
 end
 

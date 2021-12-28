@@ -122,9 +122,11 @@ function showinv()
 
   statwind=addwind(5,5,84,13,{"atk: 1 def: 1"})
 
+  curwind=invwind
 end
 
 function showuse()
   usewind=addwind(84,17,36,25,{"equip","throw","trash"})
   usewind.cur=1
+  curwind=usewind
 end
